@@ -19,6 +19,23 @@ app.get('/', (_req, res) => {
 });
 
 app.use('/videos', videoRoutes);
+// app.route('videos/:videoId')
+// .get('/', (req, res) => {
+//     const videoId = req.params.id;
+//     const video = video[videoId];
+
+//     if (video === undefined) {
+//         response.status(404);
+//         response.json({
+//             error: `Can't find video named ${video}`
+//         });
+//     } else {
+//         response.json({
+//             videoId: videoId,
+//             video: video[videoId]
+//         });
+//     }
+// })
 
 app.listen(PORT, () => {
     console.log(`🚀 Server listening on ${PORT}`);
