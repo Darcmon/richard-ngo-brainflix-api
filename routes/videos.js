@@ -5,7 +5,6 @@ const { v4: uuid } = require('uuid');
 
 const FILE_PATH = './data/videos.json';
 
-
 const readVideos = () => {
     const videosData = JSON.parse(fs.readFileSync(FILE_PATH));
     return videosData;
