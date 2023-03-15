@@ -16,4 +16,20 @@ router.get('/', (_req, res) => {
     res.status(200).json(videosData);
 });
 
+router.post('/', (req, res) => {
+    const videoObj = req.body;
+    const newVideo = {
+        id: uuid(),
+        title: videoObj.title,
+        description: videoObj.description
+    }
+
+    const videosData = readVideos();
+    videosData.push(newVideo);
+
+    fs.writeFileSync(FILE_PATH, JSON.stringify(videosData));
+
+    res.status(201).json(newVideo);
+})
+
 module.exports = router;
