@@ -10,22 +10,31 @@ const readVideos = () => {
     return videosData;
 }
 
-// const videoList = () => {videosData.map((video) => (
-//       video={video},
-//       id={video.id},
-//       title={video.title},
-//       channel={video.channel},
-//       image={video.image}
-//   ))};
-// Create Video List
-// map the videos.json file
-// identify values for new Obj Array for videolist
-// push to virtual JSON?
-
 router.get('/', (_req, res) => {
     const videosData = readVideos();
     res.status(200).json(videosData);
 });
+
+
+router.get('/:videoId', (req, res) => {
+
+    const videoId = req.params.videoId;
+    let video = readVideos()
+
+    video = video.find(vid => vid.id === videoId);
+
+    if (!video) {
+        res.status(404);
+        res.json({
+            error: `Can't find video`
+        });
+    }
+        console.log(video);
+
+    res.send({
+        video
+    });
+})
 
 
 router.post('/', (req, res) => {
