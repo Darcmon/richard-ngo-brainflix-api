@@ -42,7 +42,28 @@ router.post('/', (req, res) => {
     const newVideo = {
         id: uuid(),
         title: videoObj.title,
-        description: videoObj.description
+        description: videoObj.description,
+        timestamp: videoObj.timestamp,
+        channel: "Lydia Perez",
+        image: "http://localhost:8080/images/image6.jpeg",
+        views: "252,796",
+        likes: "4,905",
+        comments: [
+            {
+                id: "2d818087-c1f4-4ec2-bcdc-b545fd6ec258",
+                name: "Martin Evergreen",
+                comment: "I’ve loved trains ever since I was a child. I dreamed about riding one around the world. This is the most fantastic thing I’ve seen yet, and I’m watching it ON a train!",
+                likes: 3,
+                timestamp: 1632512763000
+            },
+            {
+                id: "191de346-b3c2-47b4-bf5b-6db90d1e3bdc",
+                name: "Emily Harper",
+                comment: "Let’s collaborate on a video for saving money on cheap train tickets! I’ll have my associates contact yours.",
+                likes: 0,
+                timestamp: 1632496261000
+            }
+        ]
     }
 
     const videosData = readVideos();
